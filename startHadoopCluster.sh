@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # VARIABLES
-IMG_NAME="big-bao/spark-hadoop-cluster"
+IMG_NAME="bigbao/spark-hadoop-cluster"
 HOST_PREFIX="mycluster"
 NETWORK_NAME=$HOST_PREFIX
 
