@@ -11,6 +11,10 @@ if [ -z "$NET_QUERY" ]; then
 	docker network create --driver=bridge $NETWORK_NAME
 fi
 
+
+# DELETE last run
+docker rm -f $(docker ps -a |  grep "mycluster*"  | awk '{print $1}')
+
 # START HADOOP SLAVES 
 i=1
 while [ $i -le $N ]
