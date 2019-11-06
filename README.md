@@ -5,8 +5,9 @@ This application allows to deploy multi-nodes hadoop 2.7.7 cluster with spark 2.
 
 ## Build image
 - Clone the repo 
-- cd inside ../docker-spark-yarn-cluster 
+- cd inside ../docker-spark-yarn 
 - Run `docker build -t bigbao/spark-hadoop-cluster .`
+ or Run `./build_docker.sh`
 
 ## Run  
 - Run `./startHadoopCluster.sh`

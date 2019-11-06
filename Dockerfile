@@ -6,7 +6,8 @@ USER root
 
 RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 RUN  apt-get clean
-RUN  apt-get update --fix-missing
+RUN  apt-get update
+RUN  apt-get upgrade 
 RUN  apt-get -y dist-upgrade --fix-missing
 RUN  apt-get install -y openssh-server --fix-missing
 RUN  apt-get install -y default-jdk --fix-missing
@@ -20,9 +21,9 @@ ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 RUN ssh-keygen -t rsa -f $HOME/.ssh/id_rsa -P "" \
     && cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
 
-RUN wget -O /hadoop.tar.gz -q  https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.7.7/hadoop-2.7.7.tar.gz\
+RUN wget -O /hadoop.tar.gz -q  https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz\
         && tar xfz hadoop.tar.gz \
-        && mv /hadoop-2.7.7 /usr/local/hadoop \
+        && mv /hadoop-3.2.1 /usr/local/hadoop \
         && rm /hadoop.tar.gz
 
 RUN wget -O /spark.tar.gz -q https://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz
