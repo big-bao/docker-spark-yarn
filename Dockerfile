@@ -6,8 +6,8 @@ USER root
 
 RUN  sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 RUN  apt-get clean
-RUN  apt-get update
-RUN  apt-get upgrade 
+RUN  apt-get -y update
+RUN  apt-get -y upgrade 
 RUN  apt-get -y dist-upgrade --fix-missing
 RUN  apt-get install -y openssh-server --fix-missing
 RUN  apt-get install -y default-jdk --fix-missing
@@ -16,6 +16,8 @@ RUN  apt-get install -y scala --fix-missing
 RUN  apt-get -y update --fix-missing
 RUN  apt-get -y install zip --fix-missing
 RUN  apt-get -y install vim --fix-missing
+RUN  apt-get -y install net-tools
+RUN  apt-get -y install netstat
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 RUN ssh-keygen -t rsa -f $HOME/.ssh/id_rsa -P "" \
