@@ -13,7 +13,6 @@ RUN  apt-get install -y openssh-server --fix-missing
 RUN  apt-get install -y default-jdk --fix-missing
 RUN  apt-get install -y wget --fix-missing
 RUN  apt-get install -y scala --fix-missing
-RUN  apt-get -y update --fix-missing
 RUN  apt-get -y install zip --fix-missing
 RUN  apt-get -y install vim --fix-missing
 RUN  apt-get -y install net-tools
